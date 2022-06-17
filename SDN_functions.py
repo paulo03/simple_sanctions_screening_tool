@@ -2,8 +2,7 @@ import pandas as pd
 import requests
 import json
 from datetime import datetime
-from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+from fuzzywuzzy import fuzz, process
 
 def name_match(name, sdn_name, match_type):
     '''function takes 3 args, 2 different names and a match type,
@@ -81,7 +80,7 @@ def DOB_match(indiv_dob, sdn_dob):
     indiv_dob = datetime.strptime(indiv_dob, "%d %b %Y")
     # Length of SDN DOB, will help us understand how to convert to datetime
     sdn_dob_len = len(sdn_dob) 
-    months = {'JAN': [1, 31], 'FEB': [2, 28], 'MAR': [3, 31], 'APR': [4, 30],
+    months = {'JAN': [1, 31], 'FEB': [2, 29], 'MAR': [3, 31], 'APR': [4, 30],
               'MAY': [5, 31], 'JUN': [6, 30], 'JUL': [7, 31], 'AUG': [8, 31],
               'SEP': [9, 30], 'OCT': [10, 31], 'NOV': [11, 30], 'DEC': [12, 31]
               }
